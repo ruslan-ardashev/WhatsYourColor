@@ -14,7 +14,7 @@ public class View {
 
 	// JavaFX Instance Variables
 	private Scene scene;
-	private Group root;
+	private HBox centeringBox;
 	private VBox buttonBox;
 	
 	private double width, height;
@@ -32,7 +32,8 @@ public class View {
 	public View(double width, double height) {
 		
 		configureSize(width, height);
-		createRootAndScene();
+		createCenteringBox();
+		createScene();
 		createAndAddButtonBox();
 		
 	}
@@ -52,19 +53,33 @@ public class View {
 		
 	}
 	
-	private void createRootAndScene() {
+	private void createScene() {
 		
-		root = new Group();
-		scene = new Scene(root, width, height, Color.TAN);
+		scene = new Scene(centeringBox, width, height);
+
+	}
+	
+	private void createCenteringBox() {
+		
+		centeringBox = new HBox();
+		centeringBox.setAlignment(Pos.CENTER);
+		centeringBox.setStyle("-fx-background: #AAAAAA;");
 
 	}
 
 	private void createAndAddButtonBox() {
 
-		buttonBox = new ButtonBox(root, Ints.BUTTON_OFFSET, buttonWidth);
+		buttonBox = new ButtonBox(Ints.BUTTON_OFFSET, buttonWidth);
+
+		// Debugging
+//		buttonBox.setStyle("-fx-border-style: solid;"
+//				                + "-fx-border-width: 1;"
+//				                + "-fx-border-color: black");
+
 		
-		buttonBox.setTranslateX(halfWidth);
 		buttonBox.setTranslateY(ninthHeight);
+		
+		centeringBox.getChildren().add(buttonBox);
 
 	}
 	
@@ -75,6 +90,13 @@ public class View {
 	}
 	
 	// All other instance methods
+	// Quick, proper method with aligning box
+	private void addPane(Pane pane) {
+		
+		centeringBox.getChildren().add(pane);
+		
+	}
+	
 	
 	
 }
