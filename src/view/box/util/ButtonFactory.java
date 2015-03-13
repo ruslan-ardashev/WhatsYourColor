@@ -16,14 +16,11 @@ public class ButtonFactory {
 		
 	}
 	
-	// Adds button to parent
 	public Button createAndAddButtonWithText(String text) {
 		
 		Button returnButton = new Button(text);
 
 		setWidthOnButton(buttonWidth, returnButton);
-		
-		this.parent.getChildren().add(returnButton);
 		
 		return returnButton;
 		

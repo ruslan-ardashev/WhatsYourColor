@@ -10,9 +10,6 @@ import javafx.scene.layout.VBox;
 
 public class ButtonBox extends VBox {
 
-	// JavaFX
-	private Group parent;
-	
 	// Factories
 	private ButtonFactory buttonFactory;
 	
@@ -22,13 +19,9 @@ public class ButtonBox extends VBox {
 	
 	// Constructor & Helpers
 	// Also adds self to parent
-	public ButtonBox(Group parent, int buttonOffset, double buttonWidth) {
+	public ButtonBox(int buttonOffset, double buttonWidth) {
 
 		super(buttonOffset);
-		this.parent = parent;
-		this.parent.getChildren().add(this);
-		
-		this.setAlignment(Pos.BASELINE_CENTER);
 		
 		this.buttonWidth = buttonWidth;
 		
@@ -53,7 +46,7 @@ public class ButtonBox extends VBox {
 	private void createSelectImageButton() {
 		
 		Button selectImageButton = buttonFactory.createAndAddButtonWithText("#WhatsMyColor");
-		
+		this.getChildren().add(selectImageButton);
 		
 	}
 	
