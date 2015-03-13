@@ -5,10 +5,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class ButtonBox extends VBox {
+public class ButtonBox extends Box {
 
 	// Factories
 	private ButtonFactory buttonFactory;
@@ -19,9 +20,9 @@ public class ButtonBox extends VBox {
 	
 	// Constructor & Helpers
 	// Also adds self to parent
-	public ButtonBox(int buttonOffset, double buttonWidth) {
+	public ButtonBox(double parentWidth, int buttonOffset, double buttonWidth) {
 
-		super(buttonOffset);
+		super(parentWidth);
 		
 		this.buttonWidth = buttonWidth;
 		
