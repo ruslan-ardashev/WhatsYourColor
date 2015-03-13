@@ -31,29 +31,32 @@ public class View {
 		this.width = width;
 		this.height = height;
 
+		// Width
 		twentiethWidth = Doubles.TWENTY_PERCENT * width;
 		halfWidth = Doubles.FIFTY_PERCENT * width;
+		buttonWidth = twentiethWidth * Doubles.NINETY_PERCENT;
 
+		// Height
+		ninthHeight = Doubles.NINETY_PERCENT * height;
+		
 	}
 	
 	private void createRootAndScene() {
 		
 		root = new Group();
 		scene = new Scene(root, width, height, Color.TAN);
-		vBox = new VBox();
-		root.getChildren().add(vBox);
 
 	}
 
-	private void createAndAddVBox() {
+	private void createAndAddButtonBox() {
 
-		vBox = new VBox();
-		root.getChildren().add(vBox);
+		buttonBox = new ButtonBox(root, Ints.BUTTON_OFFSET, buttonWidth);
+		
+		buttonBox.setTranslateX(halfWidth);
+		buttonBox.setTranslateY(ninthHeight);
 
 	}
-
 	
-
 
 	// Getters & Setters
 	public Scene getSceneToDisplay() {
