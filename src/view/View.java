@@ -26,7 +26,7 @@ public class View {
 	private double width, height;
 	
 	// Width
-	private double twentyPercentWidth, fourtyPercentWidth;
+	private double twentyPercentWidth, thirtyPercentWidth;
 	private double buttonWidth;
 	
 	// Height
@@ -49,7 +49,7 @@ public class View {
 
 		// Width
 		twentyPercentWidth = Doubles.TWENTY_PERCENT * width;
-		fourtyPercentWidth = Doubles.FOURTY_PERCENT * width;
+		thirtyPercentWidth = Doubles.THIRTY_PERCENT * width;
 		buttonWidth = twentyPercentWidth * Doubles.NINETY_PERCENT;
 
 		// Height
@@ -94,13 +94,8 @@ public class View {
 	
 	private DisplayBox createDisplayBox() {
 
-		DisplayBox returnDisplayBox = new DisplayBox(width, fourtyPercentWidth, seventyFivePercentHeight);
+		DisplayBox returnDisplayBox = new DisplayBox(width, thirtyPercentWidth, seventyFivePercentHeight, null, null);
 
-//		 Debugging
-		 returnDisplayBox.setStyle("-fx-border-style: solid;"
-				                + "-fx-border-width: 1;"
-				                + "-fx-border-color: black");
-		
 		returnDisplayBox.setTranslateY(fivePercentHeight);
 
 		return returnDisplayBox;
