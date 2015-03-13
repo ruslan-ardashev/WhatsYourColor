@@ -3,6 +3,7 @@ package view;
 import resources.constants.Doubles;
 import resources.constants.Ints;
 import view.box.ButtonBox;
+import view.box.DisplayBox;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -16,27 +17,28 @@ public class View {
 
 	// JavaFX Instance Variables
 	private Scene scene;
-	private HBox centeringBox;
-	private VBox buttonBox;
+	private Group root;
+	
+	// Boxes
+	private ButtonBox buttonBox;
+	private DisplayBox displayBox;
 	
 	private double width, height;
 	
 	// Width
-	private double twentiethWidth;
-	private double halfWidth;
+	private double twentyPercentWidth, fourtyPercentWidth;
 	private double buttonWidth;
 	
 	// Height
-	private double ninthHeight;
+	private double fivePercentHeight, seventyFivePercentHeight, eightyFivePercentHeight;
 
 	
 	// Constructor and helpers
 	public View(double width, double height) {
 		
 		configureSize(width, height);
-		createCenteringBox();
-		createScene();
-		createAndAddButtonBox();
+		createSceneAndRoot();
+		createBoxes();
 		
 	}
 	
@@ -46,32 +48,37 @@ public class View {
 		this.height = height;
 
 		// Width
-		twentiethWidth = Doubles.TWENTY_PERCENT * width;
-		halfWidth = Doubles.FIFTY_PERCENT * width;
-		buttonWidth = twentiethWidth * Doubles.NINETY_PERCENT;
+		twentyPercentWidth = Doubles.TWENTY_PERCENT * width;
+		fourtyPercentWidth = Doubles.FOURTY_PERCENT * width;
+		buttonWidth = twentyPercentWidth * Doubles.NINETY_PERCENT;
 
 		// Height
-		ninthHeight = Doubles.NINETY_PERCENT * height;
+		fivePercentHeight = Doubles.FIVE_PERCENT * height;
+		seventyFivePercentHeight = Doubles.SEVENTY_FIVE_PERCENT * height;
+		eightyFivePercentHeight = Doubles.EIGHTY_FIVE_PERCENT * height;
 		
 	}
 	
-	private void createScene() {
+	private void createSceneAndRoot() {
 		
-		scene = new Scene(centeringBox, width, height);
+		root = new Group();
+		scene = new Scene(root, width, height, Color.GRAY);
 
+	}
+
+	private void createBoxes() {
+		
+		buttonBox = createButtonBox();
+		root.getChildren().add(buttonBox);
+		
+		displayBox = createDisplayBox();
+		root.getChildren().add(displayBox);
+		
 	}
 	
-	private void createCenteringBox() {
-		
-		centeringBox = new HBox();
-		centeringBox.setAlignment(Pos.CENTER);
-		centeringBox.setStyle("-fx-background: #AAAAAA;");
+	private ButtonBox createButtonBox() {
 
-	}
-
-	private void createAndAddButtonBox() {
-
-		buttonBox = new ButtonBox(Ints.BUTTON_OFFSET, buttonWidth);
+		ButtonBox returnButtonBox = new ButtonBox(width, Ints.BUTTON_OFFSET, buttonWidth);
 
 		// Debugging
 //		buttonBox.setStyle("-fx-border-style: solid;"
@@ -79,25 +86,33 @@ public class View {
 //				                + "-fx-border-color: black");
 
 		
-		buttonBox.setTranslateY(ninthHeight);
+		returnButtonBox.setTranslateY(eightyFivePercentHeight);
 		
-		centeringBox.getChildren().add(buttonBox);
+		return returnButtonBox;
 
 	}
 	
+	private DisplayBox createDisplayBox() {
 
+		DisplayBox returnDisplayBox = new DisplayBox(width, fourtyPercentWidth, seventyFivePercentHeight);
+
+//		 Debugging
+		 returnDisplayBox.setStyle("-fx-border-style: solid;"
+				                + "-fx-border-width: 1;"
+				                + "-fx-border-color: black");
+		
+		returnDisplayBox.setTranslateY(fivePercentHeight);
+
+		return returnDisplayBox;
+		
+	}
+	
 	// Getters & Setters
 	public Scene getSceneToDisplay() {
 		return scene;
 	}
 	
 	// All other instance methods
-	// Quick, proper method with aligning box
-	private void addPane(Pane pane) {
-		
-		centeringBox.getChildren().add(pane);
-		
-	}
 	
 	
 	
