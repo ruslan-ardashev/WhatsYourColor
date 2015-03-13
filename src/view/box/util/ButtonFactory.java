@@ -3,6 +3,7 @@ package view.box.util;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 
 public class ButtonFactory {
 
@@ -21,6 +22,8 @@ public class ButtonFactory {
 		Button returnButton = new Button(text);
 
 		setWidthOnButton(buttonWidth, returnButton);
+		
+		returnButton.setFont(new Font(20));
 		
 		return returnButton;
 		
