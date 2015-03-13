@@ -11,18 +11,25 @@ public class View {
 	// JavaFX Instance Variables
 	private Scene scene;
 	private Group root;
-	private VBox vBox;
+	private VBox buttonBox;
 	
 	private double width, height;
+	
+	// Width
 	private double twentiethWidth;
 	private double halfWidth;
+	private double buttonWidth;
+	
+	// Height
+	private double ninthHeight;
+
 	
 	// Constructor and helpers
 	public View(double width, double height) {
 		
 		configureSize(width, height);
 		createRootAndScene();
-		createAndAddVBox();
+		createAndAddButtonBox();
 		
 	}
 	
