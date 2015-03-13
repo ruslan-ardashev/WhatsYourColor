@@ -1,29 +1,14 @@
 import view.View;
 import javafx.application.Application;
 import javafx.geometry.*;
-import javafx.scene.*;
 import javafx.stage.*;
-
 
 public class WMC extends Application {
 
-	private static double screenWidth;
-	private static double screenHeight;
+	private static double width, height;
 	
 	private Screen screen;
 	private Stage stage;
-	
-	public static double getScreenWidth() {
-		
-		return screenWidth;
-		
-	}
-	
-	public static double getScreenHeight() {
-		
-		return screenHeight;
-		
-	}
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -33,7 +18,7 @@ public class WMC extends Application {
 		
 		setStageToFillWindow();
 
-		View view = new View(screenWidth, screenHeight);
+		View view = new View(width, height);
 		primaryStage.setScene(view.getSceneToDisplay());
 		primaryStage.show();
 				
@@ -46,11 +31,11 @@ public class WMC extends Application {
 	    stage.setX(0);
 	    stage.setY(0);
 	    
-	    screenHeight = bounds.getHeight();
-	    screenWidth = bounds.getWidth();
+	    width = bounds.getWidth();
+	    height = bounds.getHeight();
 	    
-	    stage.setWidth(screenWidth);
-	    stage.setHeight(screenHeight);
+	    stage.setWidth(width);
+	    stage.setHeight(height);
 
 	}
 	
