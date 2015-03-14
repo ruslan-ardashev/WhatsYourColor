@@ -14,7 +14,7 @@ public class WMC extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		
 		stage = primaryStage;
-		primaryStage.setTitle("Cell Society");
+		primaryStage.setTitle("#WhatsMyColor");
 		
 		setStageToFillWindow();
 
