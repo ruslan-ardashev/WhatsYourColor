@@ -1,5 +1,6 @@
 package view.box;
 
+import resources.constants.Doubles;
 import resources.constants.Ints;
 import view.box.util.GradientRectangleFactory;
 import javafx.scene.image.Image;
