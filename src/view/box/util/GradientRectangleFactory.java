@@ -9,6 +9,7 @@ import javafx.scene.shape.Rectangle;
 public class GradientRectangleFactory {
 
 	private VBox vBox;
+	private Rectangle gradientRectangle;
 	
 	private double width, height;
 
@@ -115,7 +116,7 @@ public class GradientRectangleFactory {
 	
 	private void createRectangleWithHeightWithColorRGBAndAddToVBox(double heightEachRectangle, double r, double g, double b) {
 		
-		Rectangle gradientRectangle = new Rectangle();
+		gradientRectangle = new Rectangle();
 		
 		gradientRectangle.setWidth(width);
 		gradientRectangle.setHeight(heightEachRectangle);
