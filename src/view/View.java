@@ -110,5 +110,14 @@ public class View {
 	// All other instance methods
 	
 	
+
+	private Image readImageFromLocation(String location) {
+
+		// load an image and resize it to width of 90% while preserving its
+		// original aspect ratio, using faster filtering method
+		// The image is downloaded from the supplied URL through http protocol
+		return new Image("file:"+location, width * Doubles.NINETY_PERCENT, 0, false, false);
+
+	}
 	
 }
