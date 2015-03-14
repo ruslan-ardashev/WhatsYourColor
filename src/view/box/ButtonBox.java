@@ -1,5 +1,6 @@
 package view.box;
 
+import view.View;
 import view.box.util.ButtonFactory;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
