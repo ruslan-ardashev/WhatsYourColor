@@ -108,8 +108,13 @@ public class View {
 	}
 	
 	// All other instance methods
-	
-	
+	public void handleSelectClicked() {
+
+		File f = FileFinder.getFile();
+		createNewDisplayBoxWithImage(f.getPath());
+
+	}
+
 
 	private Image readImageFromLocation(String location) {
 
