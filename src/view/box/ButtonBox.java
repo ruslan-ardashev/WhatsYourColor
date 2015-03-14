@@ -12,6 +12,9 @@ import javafx.scene.layout.VBox;
 
 public class ButtonBox extends Box {
 
+	// Parent
+	private View parentView;
+	
 	// Factories
 	private ButtonFactory buttonFactory;
 	
@@ -21,9 +24,11 @@ public class ButtonBox extends Box {
 	
 	// Constructor & Helpers
 	// Also adds self to parent
-	public ButtonBox(double parentWidth, int buttonOffset, double buttonWidth) {
+	public ButtonBox(View parentView, double parentWidth, int buttonOffset, double buttonWidth) {
 
 		super(parentWidth);
+		
+		this.parentView = parentView;
 		
 		this.buttonWidth = buttonWidth;
 		
@@ -35,7 +40,6 @@ public class ButtonBox extends Box {
 	private void createButtons() {
 		
 		createSelectImageButton();
-		createResetButton();
 		
 	}
 	
@@ -50,11 +54,7 @@ public class ButtonBox extends Box {
 		Button selectImageButton = buttonFactory.createAndAddButtonWithText("#WhatsMyColor");
 		this.getChildren().add(selectImageButton);
 		
-	}
-	
-	private void createResetButton() {
-		
-		Button resetButton = buttonFactory.createAndAddButtonWithText("Reset");
+		selectImageButton.setOnAction(e -> parentView.handleSelectClicked());
 		
 	}
 	
