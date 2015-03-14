@@ -86,12 +86,6 @@ public class View {
 
 		ButtonBox returnButtonBox = new ButtonBox(width, Ints.BUTTON_OFFSET, buttonWidth);
 
-		// Debugging
-//		buttonBox.setStyle("-fx-border-style: solid;"
-//				                + "-fx-border-width: 1;"
-//				                + "-fx-border-color: black");
-
-		
 		returnButtonBox.setTranslateY(eightyFivePercentHeight);
 		
 		return returnButtonBox;
