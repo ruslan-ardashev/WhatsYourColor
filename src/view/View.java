@@ -84,7 +84,7 @@ public class View {
 	
 	private ButtonBox createButtonBox() {
 
-		ButtonBox returnButtonBox = new ButtonBox(width, Ints.BUTTON_OFFSET, buttonWidth);
+		ButtonBox returnButtonBox = new ButtonBox(this, width, Ints.BUTTON_OFFSET, buttonWidth);
 
 		returnButtonBox.setTranslateY(eightyFivePercentHeight);
 		
