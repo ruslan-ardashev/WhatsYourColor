@@ -131,6 +131,9 @@ public class GradientRectangleFactory {
 		gradientRectangle.setFill(new Color(r, g, b, Doubles.ALPHA_VALUE));
 		
 		vBox.getChildren().add(gradientRectangle);
+	private int medianIndex() {
+		
+		return (int)Math.floor(Ints.NUMBER_RECTANGLES / 2.0);
 		
 	}
 	
