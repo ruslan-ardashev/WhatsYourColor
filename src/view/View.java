@@ -115,6 +115,28 @@ public class View {
 
 	}
 
+	private void createNewDisplayBoxWithImage(String path) {
+		
+		if (path != null) {
+			
+			// Read image
+			Image image = readImageFromLocation(path);
+			
+			if (image != null) {
+				
+				root.getChildren().remove(displayBox);
+				
+				Color averageColor = AverageColorFinder.findAverageColorFromImage(image);
+//				(double parentWidth, double width, double height, Color color, Image image)
+				displayBox = new DisplayBox(width, thirtyPercentWidth, seventyFivePercentHeight, averageColor, image);
+
+				root.getChildren().add(displayBox);
+				
+			}
+			
+		}
+
+	}
 
 	private Image readImageFromLocation(String location) {
 
