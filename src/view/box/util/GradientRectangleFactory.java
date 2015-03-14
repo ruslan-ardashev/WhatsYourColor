@@ -35,9 +35,7 @@ public class GradientRectangleFactory {
 
 			createRectangleWithHeightWithColorRGBAndAddToVBox(heightEachRectangle, startFinalRGB[0], startFinalRGB[1], startFinalRGB[2]);
 
-			startFinalRGB[0] += incrementRGB[0];
-			startFinalRGB[1] += incrementRGB[1];
-			startFinalRGB[2] += incrementRGB[2];
+			incrementRunningRGB(startFinalRGB, incrementRGB);
 
 		}
 
@@ -115,6 +113,13 @@ public class GradientRectangleFactory {
 	}
 	
 	private void createRectangleWithHeightWithColorRGBAndAddToVBox(double heightEachRectangle, double r, double g, double b) {
+	private void incrementRunningRGB(double[] startFinalRGB, double[] incrementRGB) {
+		
+		startFinalRGB[0] += incrementRGB[0];
+		startFinalRGB[1] += incrementRGB[1];
+		startFinalRGB[2] += incrementRGB[2];
+		
+	}
 		
 		gradientRectangle = new Rectangle();
 		
