@@ -71,7 +71,7 @@ public class View {
 		buttonBox = createButtonBox();
 		root.getChildren().add(buttonBox);
 		
-		displayBox = createDisplayBox();
+		displayBox = createInitialDisplayBox();
 		root.getChildren().add(displayBox);
 		
 	}
@@ -86,7 +86,7 @@ public class View {
 
 	}
 	
-	private DisplayBox createDisplayBox() {
+	private DisplayBox createInitialDisplayBox() {
 
 		DisplayBox returnDisplayBox = new DisplayBox(width, thirtyPercentWidth, seventyFivePercentHeight, null, null);
 
@@ -121,9 +121,10 @@ public class View {
 				root.getChildren().remove(displayBox);
 				
 				Color averageColor = AverageColorFinder.findAverageColorFromImage(image);
-//				(double parentWidth, double width, double height, Color color, Image image)
-				displayBox = new DisplayBox(width, thirtyPercentWidth, seventyFivePercentHeight, averageColor, image);
-
+				
+				displayBox = new DisplayBox(width, thirtyPercentWidth, seventyFivePercentHeight, averageColor, image);	// (double parentWidth, double width, double height, Color color, Image image)
+				displayBox.setTranslateY(fivePercentHeight);
+				
 				root.getChildren().add(displayBox);
 				
 			}
@@ -137,7 +138,7 @@ public class View {
 		// load an image and resize it to width of 90% while preserving its
 		// original aspect ratio, using faster filtering method
 		// The image is downloaded from the supplied URL through http protocol
-		return new Image("file:"+location, width * Doubles.NINETY_PERCENT, 0, false, false);
+		return new Image("file:"+location, 0, 0, false, false);
 
 	}
 	
