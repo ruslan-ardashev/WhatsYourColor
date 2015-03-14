@@ -1,18 +1,12 @@
 package view.box;
 
-import java.io.File;
-
-import resources.constants.Doubles;
 import resources.constants.Ints;
-import resources.constants.Strings;
 import view.box.util.GradientRectangleFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 public class DisplayBox extends Box {
 
