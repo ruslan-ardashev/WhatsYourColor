@@ -36,8 +36,6 @@ public class AverageColorFinder {
             
         }
         
-        System.out.println("red: "+ runningR / pixels+", blue: "+ runningB / pixels);
-        
         return new Color(runningR / pixels, runningG / pixels, runningB / pixels, runningAlpha / pixels);
 		
 	}

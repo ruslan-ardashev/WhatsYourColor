@@ -59,11 +59,6 @@ public class DisplayBox extends Box {
 		vBox.setPrefWidth(width);
 		vBox.setPrefHeight(height);
 		
-//		 Debugging
-		vBox.setStyle("-fx-border-style: solid;"
-				                + "-fx-border-width: 1;"
-				                + "-fx-border-color: black");
-		
 	}
 	
 	private void fillVBox(Color color) {
