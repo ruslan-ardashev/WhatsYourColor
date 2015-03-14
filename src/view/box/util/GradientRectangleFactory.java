@@ -41,7 +41,6 @@ public class GradientRectangleFactory {
 		}
 
 	}
-	
 
 	private double[] populateRGBFromColor(Color color) {
 
