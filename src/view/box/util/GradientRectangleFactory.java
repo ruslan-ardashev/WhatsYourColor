@@ -112,7 +112,6 @@ public class GradientRectangleFactory {
 		
 	}
 	
-	private void createRectangleWithHeightWithColorRGBAndAddToVBox(double heightEachRectangle, double r, double g, double b) {
 	private void incrementRunningRGB(double[] startFinalRGB, double[] incrementRGB) {
 		
 		startFinalRGB[0] += incrementRGB[0];
@@ -125,12 +124,35 @@ public class GradientRectangleFactory {
 		
 		gradientRectangle = new Rectangle();
 		
+		setRectangleSize(heightEachRectangle);
+		setRectangleColor(index, r, g, b);
+		
+		vBox.getChildren().add(gradientRectangle);
+		
+	}
+	
+	private void setRectangleSize(double heightEachRectangle) {
+		
 		gradientRectangle.setWidth(width);
 		gradientRectangle.setHeight(heightEachRectangle);
 		
-		gradientRectangle.setFill(new Color(r, g, b, Doubles.ALPHA_VALUE));
+	}
+	
+	private void setRectangleColor(int index, double r, double g, double b) {
 		
-		vBox.getChildren().add(gradientRectangle);
+		Color rectColor = new Color(r, g, b, Doubles.ALPHA_VALUE);
+		gradientRectangle.setFill(rectColor);
+		
+		if (index == medianIndex()) {
+			gradientRectangle.setStrokeWidth(5.0);
+			gradientRectangle.setStroke(Color.BLACK);
+		} else {
+			gradientRectangle.setStrokeWidth(5.0);
+			gradientRectangle.setStroke(rectColor);
+		}
+		
+	}
+
 	private int medianIndex() {
 		
 		return (int)Math.floor(Ints.NUMBER_RECTANGLES / 2.0);
