@@ -1,4 +1,4 @@
-# \#WhatsMyColor
+# \#WhatsYourColor
 
 The idea: Takes an average of colors from all pictures a user is tagged in on Facebook. The user is then given a referral number and directed to the nearest Sherwin Williams store to retreive this special card and their free, small tub of "life's color." 
 
