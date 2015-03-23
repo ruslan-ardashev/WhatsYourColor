@@ -3,7 +3,7 @@ import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.stage.*;
 
-public class WMC extends Application {
+public class WYC extends Application {
 
 	private static double width, height;
 	
@@ -14,7 +14,7 @@ public class WMC extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		
 		stage = primaryStage;
-		primaryStage.setTitle("#WhatsMyColor");
+		primaryStage.setTitle("#WhatsYourColor");
 		
 		setStageToFillWindow();
 
