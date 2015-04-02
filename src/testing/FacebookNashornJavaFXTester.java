@@ -20,7 +20,8 @@ public class FacebookNashornJavaFXTester extends Application {
 
 	// Static Variables
 	private static double width, height;
-
+	private static NashornScriptEngineFactory nashornScriptEngineFactory = new NashornScriptEngineFactory();
+	private static ScriptEngine scriptEngine = nashornScriptEngineFactory.getScriptEngine(new String[] {"--global-per-engine"});
 
 	// Instance Variables
 	private Screen screen;
@@ -71,9 +72,6 @@ public class FacebookNashornJavaFXTester extends Application {
 	private class FacebookJavaScriptRunner {
 
 		public void run() throws ScriptException {
-
-			NashornScriptEngineFactory nashornScriptEngineFactory = new NashornScriptEngineFactory();
-			ScriptEngine scriptEngine = nashornScriptEngineFactory.getScriptEngine(new String[] {"--global-per-engine"});
 
 			scriptEngine.eval("java.lang.System.out.println('hello world!')");
 			scriptEngine.eval("function sum(a, b) { return a + b; }");
