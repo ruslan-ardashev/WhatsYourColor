@@ -54,7 +54,7 @@ public class ButtonBox extends Box {
 		Button selectImageButton = buttonFactory.createAndAddButtonWithText("#WhatsYourColor");
 		this.getChildren().add(selectImageButton);
 		
-		selectImageButton.setOnAction(e -> parentView.handleSelectClicked());
+//		selectImageButton.setOnAction(e -> parentView.handleSelectClicked());
 		
 	}
 	
