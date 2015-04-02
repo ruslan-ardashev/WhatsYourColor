@@ -38,6 +38,14 @@ public class FacebookNashornJavaFXTester extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
+//		stage = primaryStage;
+//		primaryStage.setTitle("Testing");
+//
+//		setStageToFillWindow();
+//
+//		primaryStage.setScene(new FacebookView(width, height).getSceneToDisplay());
+//		primaryStage.show();
+		
 		test();
 
 	}
@@ -65,6 +73,7 @@ public class FacebookNashornJavaFXTester extends Application {
 			facebookJavaScriptRunner.run();
 		} catch (ScriptException e) {
 			// Silently fail
+			System.out.println(e);
 		}
 
 	}
@@ -73,18 +82,54 @@ public class FacebookNashornJavaFXTester extends Application {
 
 		public void run() throws ScriptException {
 
+			scriptEngine.eval("load('fx:base.js');");
+			
 			scriptEngine.eval("java.lang.System.out.println('hello world!')");
 			scriptEngine.eval("function sum(a, b) { return a + b; }");
 			System.out.println(scriptEngine.eval("sum(1, 2);"));
-
+			
 			/**
 			 * Example of how to use a .js file
 			 */
 			//		    engine.eval(new FileReader("src/sample1/greeter.js"));
 			//		    System.out.println(invocable.invokeFunction("greet", "Julien"));
-
 			
-
+			
+			scriptEngine.eval("load('fx:base.js'); load('fx:controls.js'); load('fx:graphics.js');");
+			scriptEngine.eval("var stage = new createjs.Stage(canvas);");
+			scriptEngine.eval("var root = new Group();");
+			scriptEngine.eval("var scene = new Scene(root, 800, 400, true); scene.fill = Color.rgb(127, 127, 127); scene.camera = new PerspectiveCamera(false); stage.scene = scene; stage.show();");
+			
+//			Passing Java objects to Nashorn interpreter
+//			The way that Nashorn handles the binding between Java and JavaScript contexts is simpler than in Rhino. 
+//			There is no need to setup or manipulate JavaScript contexts and create wrapping objects, just:
+//
+//			instantiate a Bindings object, a Map like class (line 4),
+//			add the Java objects with a proper name (line 20),
+//			and finally set the Bindings object into the engine in the proper scope (line 10).
+			
+//			private static void putJavaVariablesIntoEngine(ScriptEngine engine,
+//			        List variables) {
+//			 
+//			    Bindings bindings = new SimpleBindings();
+//			 
+//			    for (EcmaVariable variable : variables) {
+//			        putJavaVariableIntoEcmaScope(bindings, variable);
+//			    }
+//			 
+//			    engine.setBindings(bindings, ScriptContext.GLOBAL_SCOPE);
+//			}
+//			 
+//			private static void putJavaVariableIntoEcmaScope(Bindings bindings,
+//			        EcmaVariable variable) {
+//			 
+//			    String variableName = variable.getName();
+//			    EcmaValue ecmaValue = variable.getValue();
+//			    Object javaValue = ecmaValue.getValue();
+//			 
+//			    bindings.put(variableName, javaValue);
+//			}
+			
 		}
 
 	}
