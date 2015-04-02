@@ -2,8 +2,9 @@ package view.facebookView;
 
 import view.View;
 import view.facebookView.facebookLoginBox.FacebookLoginBox;
+import view.facebookView.facebookLoginBox.FacebookLoginController;
 
-public class FacebookView extends View {
+public class FacebookView extends View implements FacebookLoginController {
 
 	// Instance Variables
 	private FacebookLoginBox facebookLoginBox;
@@ -20,7 +21,7 @@ public class FacebookView extends View {
 	
 	private void instantiateFacebookLoginBox() {
 		
-		this.facebookLoginBox = new FacebookLoginBox();
+		this.facebookLoginBox = new FacebookLoginBox(this);
 		root().setCenter(facebookLoginBox);
 		
 	}
