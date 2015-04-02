@@ -1,5 +1,11 @@
 package view.facebookView;
 
+import javafx.scene.image.ImageView;
+import resources.OAuth.OAuth;
+
+import com.restfb.*;
+import com.restfb.types.User;
+
 import view.View;
 import view.facebookView.facebookLoginBox.FacebookLoginBox;
 import view.facebookView.facebookLoginBox.FacebookLoginController;
