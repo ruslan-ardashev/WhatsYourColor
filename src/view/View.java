@@ -5,40 +5,51 @@ import java.io.File;
 import files.FileFinder;
 import resources.constants.Doubles;
 import resources.constants.Ints;
+import util.AverageColorFinder;
 import view.box.ButtonBox;
 import view.box.DisplayBox;
-import view.util.AverageColorFinder;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 
-public class View {
+public abstract class View {
 
-	// JavaFX Instance Variables
+	// Instance Variables
 	private Scene scene;
-	private Group root;
-	
-	// Boxes
-	private ButtonBox buttonBox;
-	private DisplayBox displayBox;
-	
+	private BorderPane root;
+	// Size
 	private double width, height;
-	
 	// Width
 	private double twentyPercentWidth, thirtyPercentWidth;
 	private double buttonWidth;
-	
 	// Height
 	private double fivePercentHeight, seventyFivePercentHeight, eightyFivePercentHeight;
 
+	
+	// Getters & Setters
+	public Scene getSceneToDisplay() {
+		return scene;
+	}
+	
+	protected double width() {
+		return this.width;
+	}
+	
+	protected double height() {
+		return this.height;
+	}
+	
+	protected BorderPane root() {
+		return this.root;
+	}
 	
 	// Constructor and helpers
 	public View(double width, double height) {
 		
 		configureSize(width, height);
 		createSceneAndRoot();
-		createBoxes();
 		
 	}
 	
@@ -61,84 +72,8 @@ public class View {
 	
 	private void createSceneAndRoot() {
 		
-		root = new Group();
+		root = new BorderPane();
 		scene = new Scene(root, width, height, Color.GRAY);
-
-	}
-
-	private void createBoxes() {
-		
-		buttonBox = createButtonBox();
-		root.getChildren().add(buttonBox);
-		
-		displayBox = createInitialDisplayBox();
-		root.getChildren().add(displayBox);
-		
-	}
-	
-	private ButtonBox createButtonBox() {
-
-		ButtonBox returnButtonBox = new ButtonBox(this, width, Ints.BUTTON_OFFSET, buttonWidth);
-
-		returnButtonBox.setTranslateY(eightyFivePercentHeight);
-		
-		return returnButtonBox;
-
-	}
-	
-	private DisplayBox createInitialDisplayBox() {
-
-		DisplayBox returnDisplayBox = new DisplayBox(width, thirtyPercentWidth, seventyFivePercentHeight, null, null);
-
-		returnDisplayBox.setTranslateY(fivePercentHeight);
-
-		return returnDisplayBox;
-		
-	}
-	
-	// Getters & Setters
-	public Scene getSceneToDisplay() {
-		return scene;
-	}
-	
-	// All other instance methods
-	public void handleSelectClicked() {
-
-		File f = FileFinder.getFile();
-		createNewDisplayBoxWithImage(f.getPath());
-
-	}
-
-	private void createNewDisplayBoxWithImage(String path) {
-		
-		if (path != null) {
-			
-			// Read image
-			Image image = readImageFromLocation(path);
-			
-			if (image != null) {
-				
-				root.getChildren().remove(displayBox);
-				
-				Color averageColor = AverageColorFinder.findAverageColorFromImage(image);
-				
-				displayBox = new DisplayBox(width, thirtyPercentWidth, seventyFivePercentHeight, averageColor, image);	// (double parentWidth, double width, double height, Color color, Image image)
-				displayBox.setTranslateY(fivePercentHeight);
-				
-				root.getChildren().add(displayBox);
-				
-			}
-			
-		}
-
-	}
-
-	private Image readImageFromLocation(String location) {
-
-		// load an image and resize it to width of 90% while preserving its
-		// original aspect ratio, using faster filtering method
-		// The image is downloaded from the supplied URL through http protocol
-		return new Image("file:"+location, 0, 0, false, false);
 
 	}
 	
