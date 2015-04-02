@@ -4,7 +4,6 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
 import view.facebookView.FacebookView;
-import view.facebookView.FacebookView.FacebookJavaScriptRunner;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
@@ -38,15 +37,7 @@ public class FacebookNashornJavaFXTester extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		stage = primaryStage;
-		primaryStage.setTitle("Testing");
-
-		setStageToFillWindow();
-
-		primaryStage.setScene(new FacebookView(width, height).getSceneToDisplay());
-		primaryStage.show();
-		
-		testPrintingUser();
+		test();
 
 	}
 
@@ -65,7 +56,7 @@ public class FacebookNashornJavaFXTester extends Application {
 
 	}
 
-	private void testPrintingUser() {
+	private void test() {
 
 		FacebookJavaScriptRunner facebookJavaScriptRunner = new FacebookJavaScriptRunner();
 
