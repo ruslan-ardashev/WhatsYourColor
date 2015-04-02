@@ -1,11 +1,15 @@
 package view.facebookView;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+
 import javafx.scene.image.ImageView;
 import resources.OAuth.OAuth;
-
 import view.View;
 import view.facebookView.facebookLoginBox.FacebookLoginBox;
 import view.facebookView.facebookLoginBox.FacebookLoginController;
+import jdk.nashorn.api.scripting.*;
+
 
 public class FacebookView extends View implements FacebookLoginController {
 
@@ -21,8 +25,6 @@ public class FacebookView extends View implements FacebookLoginController {
 
 		instantiateFacebookLoginBox();
 		
-		testPrintingUser();
-		
 	}
 	
 	private void instantiateFacebookLoginBox() {
@@ -34,10 +36,6 @@ public class FacebookView extends View implements FacebookLoginController {
 	
 	
 	// All other instance methods
-	private void testPrintingUser() {
-		
-		
-		
-	}
+	
 	
 }
