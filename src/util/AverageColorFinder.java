@@ -1,4 +1,4 @@
-package view.util;
+package util;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelReader;
@@ -21,9 +21,9 @@ public class AverageColorFinder {
             	
                 Color color = pixelReader.getColor(readX, readY);
                 
-                if (color.getRed() > 1.0 || color.getBlue() > 1.0 || color.getGreen() > 1.0) {
-                	System.out.println("TOO MUCH");
-                }
+                // Sanity - check
+//                if (color.getRed() > 1.0 || color.getBlue() > 1.0 || color.getGreen() > 1.0)
+//                	System.out.println("TOO MUCH");
                 
                 runningR += color.getRed();
                 runningG += color.getGreen();
