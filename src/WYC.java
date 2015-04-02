@@ -1,4 +1,5 @@
 import view.View;
+import view.facebookView.FacebookView;
 import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.stage.*;
@@ -18,8 +19,7 @@ public class WYC extends Application {
 		
 		setStageToFillWindow();
 
-		View view = new View(width, height);
-		primaryStage.setScene(view.getSceneToDisplay());
+		primaryStage.setScene(new FacebookView(width, height).getSceneToDisplay());
 		primaryStage.show();
 				
 	}
