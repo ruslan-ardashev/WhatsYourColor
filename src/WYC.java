@@ -20,7 +20,9 @@ public class WYC extends Application {
 		
 		setStageToFillWindow();
 
-		primaryStage.setScene(new FacebookView(width, height).getSceneToDisplay());
+//		primaryStage.setScene(new FacebookView(width, height).getSceneToDisplay());
+		primaryStage.setScene(new NonFacebookPaintChipView(width, height).getSceneToDisplay());
+
 		primaryStage.show();
 				
 	}
