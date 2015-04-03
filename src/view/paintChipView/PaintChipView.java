@@ -27,18 +27,18 @@ public class PaintChipView extends View {
 	private void createBoxes() {
 
 		buttonBox = createButtonBox();
-		root.getChildren().add(buttonBox);
+		root().getChildren().add(buttonBox);
 
 		displayBox = createInitialDisplayBox();
-		root.getChildren().add(displayBox);
+		root().getChildren().add(displayBox);
 
 	}
 	
 	private ButtonBox createButtonBox() {
 
-		ButtonBox returnButtonBox = new ButtonBox(this, width(), Ints.BUTTON_OFFSET, buttonWidth);
+		ButtonBox returnButtonBox = new ButtonBox(this, width(), Ints.BUTTON_OFFSET, buttonWidth());
 
-		returnButtonBox.setTranslateY(eightyFivePercentHeight);
+		returnButtonBox.setTranslateY(eightyFivePercentHeight());
 		
 		return returnButtonBox;
 
@@ -46,9 +46,9 @@ public class PaintChipView extends View {
 	
 	private DisplayBox createInitialDisplayBox() {
 
-		DisplayBox returnDisplayBox = new DisplayBox(width(), thirtyPercentWidth, seventyFivePercentHeight, null, null);
+		DisplayBox returnDisplayBox = new DisplayBox(width(), thirtyPercentWidth(), seventyFivePercentHeight(), null, null);
 
-		returnDisplayBox.setTranslateY(fivePercentHeight);
+		returnDisplayBox.setTranslateY(fivePercentHeight());
 
 		return returnDisplayBox;
 		
@@ -74,14 +74,14 @@ public class PaintChipView extends View {
 
 			if (image != null) {
 
-				root.getChildren().remove(displayBox);
+				root().getChildren().remove(displayBox);
 
 				Color averageColor = AverageColorFinder.findAverageColorFromImage(image);
 
-				displayBox = new DisplayBox(width(), thirtyPercentWidth, seventyFivePercentHeight, averageColor, image);	// (double parentWidth, double width, double height, Color color, Image image)
-				displayBox.setTranslateY(fivePercentHeight);
+				displayBox = new DisplayBox(width(), thirtyPercentWidth(), seventyFivePercentHeight(), averageColor, image);	// (double parentWidth, double width, double height, Color color, Image image)
+				displayBox.setTranslateY(fivePercentHeight());
 
-				root.getChildren().add(displayBox);
+				root().getChildren().add(displayBox);
 
 			}
 
