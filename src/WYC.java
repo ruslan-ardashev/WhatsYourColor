@@ -1,5 +1,6 @@
 import view.View;
 import view.facebookView.FacebookView;
+import view.paintChipView.NonFacebookPaintChipView;
 import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.stage.*;
