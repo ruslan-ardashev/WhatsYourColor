@@ -45,6 +45,27 @@ public abstract class View {
 		return this.root;
 	}
 	
+	protected double thirtyPercentWidth() {
+		return this.thirtyPercentWidth;
+	}
+	
+	protected double buttonWidth() {
+		return this.buttonWidth;
+	}
+	
+	protected double fivePercentHeight() {
+		return this.fivePercentHeight;
+	}
+	
+	protected double seventyFivePercentHeight() {
+		return this.seventyFivePercentHeight;
+	}
+	
+	protected double eightyFivePercentHeight() {
+		return this.eightyFivePercentHeight;
+	}
+	
+	
 	// Constructor and helpers
 	public View(double width, double height) {
 		
