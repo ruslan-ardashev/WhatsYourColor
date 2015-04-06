@@ -71,8 +71,11 @@ public class DisplayBox extends Box {
 
 		ImageView imageView = new ImageView(image);
 		
-		imageView.setFitWidth(Doubles.FIFTY_PERCENT * width);
-		imageView.setTranslateY(-height * Doubles.TWENTY_PERCENT);
+		imageView.setPreserveRatio(true);
+		imageView.setFitHeight(Doubles.THIRTY_PERCENT * height);
+		imageView.setFitWidth(Doubles.EIGHTY_PERCENT * width);
+		
+		imageView.setTranslateY(-height * Doubles.THIRTY_PERCENT);
 		
 		this.stackPane.getChildren().add(imageView);
 	

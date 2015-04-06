@@ -142,7 +142,7 @@ public class View {
 		// load an image and resize it to width of 90% while preserving its
 		// original aspect ratio, using faster filtering method
 		// The image is downloaded from the supplied URL through http protocol
-		return new Image("file:"+location, 0, 0, false, false);
+		return new Image("file:"+location);
 
 	}
 	
