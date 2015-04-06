@@ -106,8 +106,11 @@ public class View {
 	public void handleSelectClicked() {
 
 		File f = FileFinder.getFile();
-		createNewDisplayBoxWithImage(f.getPath());
-
+		
+		if (f != null) {
+			createNewDisplayBoxWithImage(f.getPath());
+		}
+		
 	}
 
 	private void createNewDisplayBoxWithImage(String path) {
