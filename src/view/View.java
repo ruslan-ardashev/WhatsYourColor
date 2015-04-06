@@ -63,7 +63,7 @@ public class View {
 	private void createSceneAndRoot() {
 		
 		root = new Group();
-		scene = new Scene(root, width, height, Color.GRAY);
+		scene = new Scene(root, width, height, Color.ALICEBLUE);
 
 	}
 
