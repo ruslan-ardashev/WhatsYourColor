@@ -5,6 +5,5 @@ The idea: Takes an average of colors from all pictures a user is tagged in on Fa
 
 Below is a demonstration of photographic color averaging --> paint card distribution.
 
-| 
 ![Whoops](https://github.com/ruslan120101/WhatsYourColor/blob/master/images/Sample%20Usage/1.png)          | ![Whoops](https://github.com/ruslan120101/WhatsYourColor/blob/master/images/Sample%20Usage/2.png)          | ![Whoops](https://github.com/ruslan120101/WhatsYourColor/blob/master/images/Sample%20Usage/3.png)          |
 
